@@ -1,7 +1,6 @@
+import { delay } from "@/lib/delay";
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // these two API calls are just symbolic for two very different but dependent API calls
 async function getRicks() {

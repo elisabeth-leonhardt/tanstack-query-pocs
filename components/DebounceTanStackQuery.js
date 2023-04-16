@@ -5,7 +5,7 @@ function DebounceTanStackQuery() {
   const [search, setSearch] = useState("");
   const [searchEnabled, setSearchEnabled] = useState(true);
   const [timeOutId, setTimeOutId] = useState();
-  const { data, loading, error } = useQuery(
+  const { data } = useQuery(
     ["rickAndMorties", search],
     async () =>
       await fetch(
@@ -36,7 +36,9 @@ function DebounceTanStackQuery() {
         onChange={handleInputChange}
       />
       {data?.results.map((character) => (
-        <div key={character.id}>{character.name}</div>
+        <div key={character.id}>
+          {character.name}, {character.type}
+        </div>
       ))}
     </div>
   );

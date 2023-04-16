@@ -6,11 +6,11 @@ let timerId;
 
 function Debounce() {
   return (
-<>
-    <DebounceHooks></DebounceHooks>;
-    <DebounceTanStackQuery></DebounceTanStackQuery>
-</>
-    )
+    <>
+      <DebounceHooks></DebounceHooks>
+      <DebounceTanStackQuery></DebounceTanStackQuery>
+    </>
+  );
 }
 
 export default Debounce;
