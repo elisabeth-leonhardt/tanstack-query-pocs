@@ -25,6 +25,7 @@ function PlaceholderAndInitialData() {
   const jerries = useQuery(["jerries"], getJerries, {
     placeholderData: placeHolderJerries,
   });
+
   const beths = useQuery(["beths"], getBeths, { initialData: initialBeths });
   function refresh() {
     queryClient.invalidateQueries({ queryKey: ["beths"] });

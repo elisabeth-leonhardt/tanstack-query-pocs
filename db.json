@@ -1,0 +1,114 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "user": "Elisabeth",
+      "task": "conquer the world"
+    },
+    {
+      "id": 2,
+      "user": "Elisabeth",
+      "task": "conquer the world 2"
+    },
+    {
+      "id": 3,
+      "user": "Elisabeth",
+      "task": "conquer the world 3"
+    },
+    {
+      "id": 4,
+      "user": "Elisabeth",
+      "task": "conquer the world 4"
+    },
+    {
+      "id": "fQGxvAph_NUfiQhJiS8sE",
+      "user": "Elisabeth",
+      "task": "prepare beerjs presentation"
+    },
+    {
+      "id": "JUHBBJofy9H0pyInWqkGG",
+      "user": "Elisabeth",
+      "task": "prepare beerjs presentation"
+    },
+    {
+      "id": "9sBTaLSZIKqkZR3QfWPa4",
+      "user": "Elisabeth",
+      "task": "prepare beerjs presentation"
+    },
+    {
+      "id": "IO388cajW6MSDCXQg8yo5",
+      "user": "Elisabeth",
+      "task": "prepare beerjs presentation"
+    },
+    {
+      "id": "ZEkXgfxV2hZSBPaoKpT_V",
+      "user": "sdf",
+      "task": "testnofetch"
+    },
+    {
+      "id": "G8JOdckLtj3uLELnzMWop",
+      "user": "eli",
+      "task": "testnofetch"
+    },
+    {
+      "id": "eHFVDHnmSMPaOS5Vcd_GW",
+      "user": "eli",
+      "task": "testnofetch"
+    },
+    {
+      "id": "IWZDTH_IhZJBZFSoS3Eh-",
+      "user": "eli",
+      "task": "testnofetch3"
+    },
+    {
+      "id": "0pjajyTMmeYv7G3P176do",
+      "user": "sdf",
+      "task": "sdf"
+    },
+    {
+      "id": "PYqnVVAY3PXve_JGQ0HFE",
+      "user": "sdfsdf",
+      "task": "sdfsdf"
+    },
+    {
+      "id": "hp_OepsZRuzhhGQBv2uuz",
+      "user": "sdfsdfsd",
+      "task": "sdfsdfsdf"
+    },
+    {
+      "id": "QwY2UIwwjY3NN2NWkawzV",
+      "user": "eli",
+      "task": "test-eli"
+    },
+    {
+      "id": "fDQSs4YxJmSJM5ZJbH1BU",
+      "user": "eli",
+      "task": "test-eli-moved-onsuccess"
+    },
+    {
+      "id": "NfSd_ydWurTnh8p4LhqHl",
+      "user": "test",
+      "task": "test"
+    },
+    {
+      "id": "knuo-BH2Pg4CWq1qETP7h",
+      "user": "test",
+      "task": "test"
+    },
+    {
+      "id": "qX1ZbG8jJuyO2iKBuc1kM",
+      "user": "test",
+      "task": "test-optimistic"
+    },
+    {
+      "id": "32OFrFlc4DyLn2mTPiTf5",
+      "user": "test",
+      "task": "test-optimistic2"
+    },
+    {
+      "id": "4sABl78-BCM42GIHxSYtI",
+      "user": "test",
+      "task": "test-optimistic-with-id"
+    }
+  ]
+}

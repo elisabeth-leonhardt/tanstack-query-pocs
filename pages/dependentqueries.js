@@ -21,7 +21,7 @@ async function getMorties() {
 
 function Dependentqueries() {
   const ricks = useQuery(["ricks"], getRicks);
-  let ricksPresent = !!ricks.data;
+  let ricksPresent = !!ricks.data && !ricks.isPlaceholderData;
   const morties = useQuery(["morties"], getMorties, { enabled: ricksPresent });
   return (
     <div className="flex gap-8">
