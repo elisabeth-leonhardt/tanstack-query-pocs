@@ -28,7 +28,6 @@ function DebounceTanStackQuery() {
   }
   return (
     <div>
-      <h1>Debounce tanstack query</h1>
       <input
         type="text"
         className="text-black"

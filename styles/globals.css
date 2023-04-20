@@ -2,26 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  
+  body {
+    color: white;
+    line-height: 1.5;
+    background-color: #111827;
   }
-}
+  
+  .tanstack-query-gradient {
+    background-image: linear-gradient(to right, rgb(239, 68, 68), rgb(245, 158, 11));
+    background-clip: text;
+    color: transparent;
+  }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  svg {
+    height: 1.4rem;
+  }
+
+  svg.home {
+    height: 1.8rem;
+  }
+
+  .loader {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: inline-block;
+    border-top: 4px solid #FFF;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+  .loader::after {
+    content: '';  
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border-left: 4px solid #FF3D00;
+    border-bottom: 4px solid transparent;
+    animation: rotation 0.5s linear infinite reverse;
+  }
+  @keyframes rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  } 
+
+  input, select, option {
+    padding: .5rem;
+    border-radius: .5rem;
+  }
+
+  button, button[type="submit"] {
+    background-image: linear-gradient(to right, rgb(239, 68, 68), rgb(245, 158, 11));
+    padding: .8rem 1.6rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    font-size: 1.2rem;
+  }
+
+  .grid-columns-filters {
+    grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+  }
+  
+  .grid-columns-cards {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  
+
 }

@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { nanoid } from "nanoid";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { delay } from "@/lib/delay";
+import Link from "next/link";
+import { Home } from "@/components/Icons";
 
 async function createTodo(todo) {
   const response = await fetch("http://localhost:8000/todos", {
@@ -49,8 +51,13 @@ function Mutation() {
 
   const todos = useQuery(["todos"], fetchTodos);
   return (
-    <div>
-      Mutation
+    <div className="min-h-screen max-w-5xl m-[auto] py-10 px-4">
+      <Link href="/">
+        <Home fill="#fff"></Home>
+      </Link>
+      <h1 className="text-4xl font-extrabold tanstack-query-gradient py-2 pb-4">
+        Mutation with Refetch
+      </h1>
       <form onSubmit={onFormSubmit}>
         <label htmlFor="user">User</label>
         <input

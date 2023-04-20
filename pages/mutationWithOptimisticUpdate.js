@@ -4,6 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { delay } from "@/lib/delay";
 
 async function createTodo(todo) {
+  // these delays are only for demonstration purposes!!
   await delay(3000);
   const response = await fetch("http://localhost:8000/todos", {
     method: "POST",
@@ -47,9 +48,11 @@ function Mutation() {
       return { previousTodos };
     },
     onError: (err, newTodo, context) => {
+      console.log(context);
       queryClient.setQueryData(["todos"], context.previousTodos);
+      alert("error!");
     },
-    onSettled: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
+    // onSettled: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
   });
   const queryClient = useQueryClient();
   const [todo, setTodo] = useState({ user: "", task: "" });
@@ -62,13 +65,14 @@ function Mutation() {
   function onFormSubmit(e) {
     e.preventDefault();
     // id has to be assigned here for optimistic update to work
-    createTodoMutation.mutate({...todo, id: nanoid()});
+    createTodoMutation.mutate({ ...todo, id: nanoid() });
   }
 
   const todos = useQuery(["todos"], fetchTodos);
+  console.log(todos.data);
   return (
     <div>
-      Mutation
+      Mutation with Optimistic Updates
       <form onSubmit={onFormSubmit}>
         <label htmlFor="user">User</label>
         <input
