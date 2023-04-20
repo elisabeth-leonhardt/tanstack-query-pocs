@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Home } from "@/components/Icons";
 import Image from "next/image";
 import eli from "../assets/eli.webp";
+import { returnPicture } from "@/components/Todo";
 
 async function updateTodo(todo) {
   await fetch(`http://localhost:8000/todos/${todo.id}`, {
@@ -31,6 +32,7 @@ function Todo({ todo }) {
     const updatedTodo = { ...todo, done: e.target.checked };
     changeTodoMutation.mutate(updatedTodo);
   }
+  const pic = returnPicture(todo.user);
   return (
     <div className="bg-white text-black rounded-lg grid grid-cols-[auto_1fr_auto] items-center gap-4 py-2 px-4">
       <input
@@ -40,7 +42,7 @@ function Todo({ todo }) {
       />
       <p>{todo.task}</p>
       <Image
-        src={eli}
+        src={pic}
         alt="profile picture"
         className="rounded-full"
         height={60}

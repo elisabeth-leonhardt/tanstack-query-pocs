@@ -2,47 +2,63 @@
   "todos": [
     {
       "id": 1,
-      "user": "Elisabeth",
-      "task": "drink beer for enhanced bravery",
-      "done": true
-    },
-    {
-      "id": 2,
-      "user": "Elisabeth",
-      "task": "conquer the world 2",
+      "user": "rick",
+      "task": "drink a beer",
       "done": false
     },
     {
+      "id": 2,
+      "user": "morty",
+      "task": "skip school",
+      "done": true
+    },
+    {
       "id": 3,
-      "user": "Elisabeth",
-      "task": "conquer the world 3",
+      "user": "morty",
+      "task": "go on another adventure",
       "done": false
     },
     {
       "id": "PYEZs01hZxDDdEDShaIQF",
-      "user": "sf",
-      "task": "sdf",
-      "done": false
+      "user": "beth",
+      "task": "save a horses life",
+      "done": true
     },
     {
       "id": "PbtNsCt7OQZnVXI3pjpUu",
-      "user": "sfsss",
-      "task": "sdfssss"
+      "user": "summer",
+      "task": "do homework",
+      "done": true
     },
     {
       "id": "tUNDqJiKVEkFmtSXpDa3E",
-      "user": "sfssssss",
-      "task": "sdfsssssss"
+      "user": "jerry",
+      "task": "be successful in a simulation",
+      "done": false
     },
     {
       "id": "x2xWhrpYt0Bq5VZFQsBKr",
-      "user": "sfssssss",
-      "task": "sdfssssssssdfsdf"
+      "user": "rick",
+      "task": "burry the dead rick",
+      "done": true
     },
     {
-      "id": "Y1XtpERSINI7VxeW-pZbb",
-      "user": "sfssssss",
-      "task": "sdfssssssssdfsdf"
+      "id": "tpQO7FJfLIbobouLuOZlo",
+      "user": "morty",
+      "task": "burry the dead morty",
+      "done": true
+    },
+    {
+      "id": "3UI58QH3oiwWboimAOxvV",
+      "user": "morty",
+      "task": "make Jessica fall in love with me",
+      "done": true
+    },
+    {
+      "id": "3UI58QH3oiwWboimAOx3V",
+      "user": "rick",
+      "task": "do a technical experiment",
+      "done": true
     }
   ]
 }

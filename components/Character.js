@@ -19,21 +19,21 @@ function getAlive(status) {
       return (
         <div className="text-green-700 flex justify-center items-center gap-1">
           <Alive fill="rgb(21, 128, 61)"></Alive>
-          <it className="italic">Alive</it>
+          <span className="italic">Alive</span>
         </div>
       );
     case "Dead":
       return (
         <div className="text-red-700 flex justify-center items-center gap-1">
           <Alive fill="rgb(185, 28, 28)"></Alive>
-          <it className="italic">Dead</it>
+          <span className="italic">Dead</span>
         </div>
       );
     default:
       return (
         <div className="flex justify-center items-center gap-1">
           <Alive></Alive>
-          <it className="italic">Unknown</it>
+          <span className="italic">Unknown</span>
         </div>
       );
   }
@@ -48,7 +48,10 @@ function Character({ character }) {
         <Image
           src={character.image}
           alt={character.name}
-          objectFit="cover"
+          style={{ objectFit: "cover" }}
+          sizes="(max-width: 768px) 100vw,
+          (max-width: 1200px) 50vw,
+          33vw"
           fill
         ></Image>
       </div>

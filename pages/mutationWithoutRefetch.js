@@ -6,6 +6,7 @@ import Link from "next/link";
 import { Home } from "@/components/Icons";
 import Image from "next/image";
 import eli from "../assets/eli.webp";
+import { returnPicture } from "@/components/Todo";
 
 async function updateTodo(todo) {
   const response = await fetch(`http://localhost:8000/todos/${todo.id}`, {
@@ -21,7 +22,6 @@ async function updateTodo(todo) {
     }),
   });
   const result = await response.json();
-  console.log(result);
 
   if (!response.ok) {
     throw new Error(result.message);
@@ -33,7 +33,6 @@ function Todo({ todo }) {
   const queryClient = useQueryClient();
   const changeTodoMutation = useMutation(updateTodo, {
     onSuccess: (updatedTodo) => {
-      console.log(updatedTodo);
 
       queryClient.setQueryData(["todos"], (oldData) => {
         const todoIndex = oldData.map((el) => el.id).indexOf(updatedTodo.id);
@@ -47,16 +46,14 @@ function Todo({ todo }) {
     const updatedTodo = { ...todo, done: e.target.checked };
     changeTodoMutation.mutate(updatedTodo);
   }
+
+  const pic = returnPicture(todo.user);
   return (
     <div className="bg-white text-black rounded-lg grid grid-cols-[auto_1fr_auto] items-center gap-4 py-2 px-4">
-      <input
-        type="checkbox"
-        checked={todo.done}
-        onChange={(e) => changeTodoStatus(e, todo.id)}
-      />
+      <input type="checkbox" checked={todo.done} onChange={changeTodoStatus} />
       <p>{todo.task}</p>
       <Image
-        src={eli}
+        src={pic}
         alt="profile picture"
         className="rounded-full"
         height={60}
