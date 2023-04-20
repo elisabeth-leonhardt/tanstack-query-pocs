@@ -41,12 +41,12 @@ const pages = [
   //   id: 6,
   // },
   {
-    linktext: "Mutation with automatic refetch",
+    linktext: "Mutation with refetch",
     link: "/mutationWithRefetch",
     id: 7,
   },
   {
-    linktext: "Mutation with manual cache update",
+    linktext: "Mutation with manual cache update (without refetch)",
     link: "/mutationWithoutRefetch",
     id: 8,
   },

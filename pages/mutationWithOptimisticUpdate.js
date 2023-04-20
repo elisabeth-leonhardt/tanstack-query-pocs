@@ -35,7 +35,6 @@ function Mutation() {
     onMutate: async (newTodo) => {
       // Cancel any outgoing refetches
       // (so they don't overwrite our optimistic update)
-      console.log(newTodo);
       await queryClient.cancelQueries({ queryKey: ["todos"] });
 
       // Snapshot the previous value
@@ -48,7 +47,6 @@ function Mutation() {
       return { previousTodos };
     },
     onError: (err, newTodo, context) => {
-      console.log(context);
       queryClient.setQueryData(["todos"], context.previousTodos);
       alert("error!");
     },
@@ -69,7 +67,6 @@ function Mutation() {
   }
 
   const todos = useQuery(["todos"], fetchTodos);
-  console.log(todos.data);
   return (
     <div>
       Mutation with Optimistic Updates

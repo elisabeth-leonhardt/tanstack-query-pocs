@@ -42,7 +42,6 @@ function getAlive(status) {
 function Character({ character }) {
   const genderIcon = getGenderIcon(character.gender);
   const alive = getAlive(character.status);
-  console.log(character.gender);
   return (
     <div className="bg-white text-black rounded-lg overflow-hidden">
       <div className="relative h-[180px]">

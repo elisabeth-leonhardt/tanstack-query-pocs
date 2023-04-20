@@ -4,6 +4,51 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { delay } from "@/lib/delay";
 import Link from "next/link";
 import { Home } from "@/components/Icons";
+import Image from "next/image";
+import eli from "../assets/eli.webp";
+
+async function updateTodo(todo) {
+  await fetch(`http://localhost:8000/todos/${todo.id}`, {
+    method: "PUT",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify({
+      id: nanoid(),
+      user: todo.user,
+      task: todo.task,
+      done: todo.done,
+    }),
+  });
+}
+
+function Todo({ todo }) {
+  const queryClient = useQueryClient();
+  const changeTodoMutation = useMutation(updateTodo, {
+    onSettled: () => queryClient.invalidateQueries({ queryKeys: ["todos"] }),
+  });
+  function changeTodoStatus(e, id) {
+    const updatedTodo = { ...todo, done: e.target.checked };
+    changeTodoMutation.mutate(updatedTodo);
+  }
+  return (
+    <div className="bg-white text-black rounded-lg grid grid-cols-[auto_1fr_auto] items-center gap-4 py-2 px-4">
+      <input
+        type="checkbox"
+        checked={todo.done}
+        onChange={(e) => changeTodoStatus(e, todo.id)}
+      />
+      <p>{todo.task}</p>
+      <Image
+        src={eli}
+        alt="profile picture"
+        className="rounded-full"
+        height={60}
+        with={60}
+      ></Image>
+    </div>
+  );
+}
 
 async function createTodo(todo) {
   const response = await fetch("http://localhost:8000/todos", {
@@ -15,6 +60,7 @@ async function createTodo(todo) {
       id: nanoid(),
       user: todo.user,
       task: todo.task,
+      done: false,
     }),
   });
 
@@ -27,12 +73,14 @@ async function createTodo(todo) {
 }
 
 async function fetchTodos() {
-  await delay(3000);
-  console.log("passing here");
+  await delay(1500);
   return fetch("http://localhost:8000/todos").then((res) => res.json());
 }
 function Mutation() {
-  const createTodoMutation = useMutation(createTodo);
+  const createTodoMutation = useMutation(createTodo, {
+    onSettled: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
+    // onSuccess: (data, querydata) => console.log(data, querydata),
+  });
   const queryClient = useQueryClient();
   const [todo, setTodo] = useState({ user: "", task: "" });
   function changeTodo(e) {
@@ -43,10 +91,7 @@ function Mutation() {
 
   function onFormSubmit(e) {
     e.preventDefault();
-    createTodoMutation.mutate(todo, {
-      onSettled: () => queryClient.invalidateQueries({ queryKey: ["todos"] }),
-      onSuccess: (data, querydata) => console.log(data, querydata),
-    });
+    createTodoMutation.mutate(todo);
   }
 
   const todos = useQuery(["todos"], fetchTodos);
@@ -58,31 +103,43 @@ function Mutation() {
       <h1 className="text-4xl font-extrabold tanstack-query-gradient py-2 pb-4">
         Mutation with Refetch
       </h1>
-      <form onSubmit={onFormSubmit}>
-        <label htmlFor="user">User</label>
-        <input
-          type="text"
-          className="text-black"
-          name="user"
-          id="user"
-          onChange={changeTodo}
-          value={todo.user}
-        />
-        <label htmlFor="">Task</label>
-        <input
-          type="text"
-          className="text-black"
-          name="task"
-          id="task"
-          onChange={changeTodo}
-          value={todo.task}
-        />
-        <button type="submit">create todo</button>
+      <form onSubmit={onFormSubmit} className="grid grid-cols-1 gap-4">
+        <div className="flex gap-4 items-end">
+          <label htmlFor="user" className="text-xl font-bold">
+            User:
+          </label>
+          <input
+            type="text"
+            className="text-black flex-1"
+            name="user"
+            id="user"
+            onChange={changeTodo}
+            value={todo.user}
+          />
+        </div>
+        <div className="flex gap-4 items-end">
+          <label htmlFor="task" className="text-xl font-bold">
+            Task:
+          </label>
+          <input
+            type="text"
+            className="text-black flex-1"
+            name="task"
+            id="task"
+            onChange={changeTodo}
+            value={todo.task}
+          />
+        </div>
+        <button type="submit" className="justify-self-end">
+          create todo
+        </button>
       </form>
-      {todos.isLoading ? <p>Loading Todos....</p> : null}
-      {todos.isSuccess
-        ? todos.data.map((todo) => <p key={todo.id}>{todo.task}</p>)
-        : null}
+      {todos.isLoading ? <span className="loader"></span> : null}
+      <div className="grid grid-cols-2 gap-4 pt-8">
+        {todos.isSuccess
+          ? todos.data.map((todo) => <Todo todo={todo} key={todo.id}></Todo>)
+          : null}
+      </div>
     </div>
   );
 }
