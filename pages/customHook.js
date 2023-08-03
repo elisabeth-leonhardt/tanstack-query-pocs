@@ -13,7 +13,7 @@ function FiltersWithCustomHook() {
     type: "",
   });
 
-  const { data } = useFilteredRicksAndMorties(filter);
+  const { data, error, isIdle, isLoading } = useFilteredRicksAndMorties(filter);
 
   function onFilterChange(e) {
     const newObject = {};
