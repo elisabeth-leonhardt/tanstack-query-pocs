@@ -1,36 +1,6 @@
 {
   "todos": [
     {
-      "id": 1,
-      "user": "rick",
-      "task": "drink a beer",
-      "done": false
-    },
-    {
-      "id": 2,
-      "user": "morty",
-      "task": "skip school",
-      "done": true
-    },
-    {
-      "id": 3,
-      "user": "morty",
-      "task": "go on another adventure",
-      "done": false
-    },
-    {
-      "id": "PYEZs01hZxDDdEDShaIQF",
-      "user": "beth",
-      "task": "save a horses life",
-      "done": true
-    },
-    {
-      "id": "PbtNsCt7OQZnVXI3pjpUu",
-      "user": "summer",
-      "task": "do homework",
-      "done": true
-    },
-    {
       "id": "tUNDqJiKVEkFmtSXpDa3E",
       "user": "jerry",
       "task": "be successful in a simulation",
@@ -40,7 +10,7 @@
       "id": "x2xWhrpYt0Bq5VZFQsBKr",
       "user": "rick",
       "task": "burry the dead rick",
-      "done": true
+      "done": false
     },
     {
       "id": "tpQO7FJfLIbobouLuOZlo",
@@ -49,16 +19,25 @@
       "done": true
     },
     {
-      "id": "3UI58QH3oiwWboimAOxvV",
-      "user": "morty",
-      "task": "make Jessica fall in love with me",
-      "done": true
+      "id": "vQ2_7VByTouDvXuPQnsWQ",
+      "user": "rick",
+      "task": "tomar cerveza",
+      "done": false
     },
     {
-      "id": "3UI58QH3oiwWboimAOx3V",
-      "user": "rick",
-      "task": "do a technical experiment",
-      "done": true
+      "id": "yLlnRCm9NbU73LHhIdStS",
+      "user": "morty",
+      "task": "no hacer la tarea"
+    },
+    {
+      "id": "47N0SFI1PduZFfxnT4bwI",
+      "user": "summer",
+      "task": "mirar tv intergalácta"
+    },
+    {
+      "id": "N7HMrtflX0Q9fdHv-606G",
+      "user": "summer",
+      "task": "mirar tv intergalácta otra vez"
     }
   ]
 }
