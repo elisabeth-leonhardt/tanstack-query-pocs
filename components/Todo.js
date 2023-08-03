@@ -1,5 +1,4 @@
 import Image from "next/image";
-import eli from "../assets/eli.webp";
 import rick from "../assets/rick.webp";
 import morty from "../assets/morty.webp";
 import summer from "../assets/summer.webp";
