@@ -64,6 +64,7 @@ export default function Home() {
         <h1 className="text-4xl font-extrabold tanstack-query-gradient py-2 flex-1">
           TanStack Query Examples
         </h1>
+        <p>introducing an error</p>
         <Link href="https://dev.to/elisabethleonhardt">
           <Image
             src={headshot}
