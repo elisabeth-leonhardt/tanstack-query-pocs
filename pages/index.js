@@ -62,7 +62,7 @@ export default function Home() {
     <main className="min-h-screen max-w-5xl m-[auto]">
       <div className="py-10 px-4 flex justify-between items-center gap-4">
         <h1 className="text-4xl font-extrabold tanstack-query-gradient py-2 flex-1">
-          TanStack Query Examples
+          TanStack Query Examples on branch hotfix
         </h1>
         <Link href="https://dev.to/elisabethleonhardt">
           <Image
